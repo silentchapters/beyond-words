@@ -719,22 +719,22 @@ body {
   }
 }
 
+
 /* =================================
    THE TWO NEW CONSTELLATION STARS
    ================================= */
 
-
-/* Prayer — far left, slightly above the middle */
+/* Prayer — far to the left */
 
 .star-prayer {
-  left: 0%;
+  left: -48%;
   top: 30%;
 }
 
-/* Devotion — far upper-right, away from Promises */
+/* Devotion — far to the right */
 
 .star-devotion {
-  left: 88%;
+  left: 145%;
   top: 0%;
 }
 
@@ -742,22 +742,8 @@ body {
 
 @media (max-width: 600px) {
   .star-prayer {
-    left: 0%;
+    left: -4%;
     top: 29%;
-  }
-
-  .star-devotion {
-    left: 86%;
-    top: 0%;
-  }
-}
-
-/* Mobile positioning */
-
-@media (max-width: 600px) {
-  .star-prayer {
-    left: 1%;
-    top: 46%;
   }
 
   .star-devotion {
