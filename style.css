@@ -622,3 +622,99 @@ body {
     height: 52px;
   }
 }
+
+/* =================================
+   NATURAL CONSTELLATION ARRANGEMENT
+   ================================= */
+
+/* Spread the four outer stars */
+
+.star-memories {
+  left: 7%;
+  top: 16%;
+}
+
+.star-promises {
+  left: 76%;
+  top: 9%;
+}
+
+.star-gratitude {
+  left: 86%;
+  top: 63%;
+}
+
+.star-dreams {
+  left: 19%;
+  top: 82%;
+}
+
+/* Keep the brightest star near the heart */
+
+.star-beyond {
+  left: 48%;
+  top: 46%;
+}
+
+/* Make connecting lines extremely subtle */
+
+.constellation-lines {
+  opacity: 0.13;
+}
+
+.line-one {
+  left: 12%;
+  top: 23%;
+  width: 39%;
+  transform: rotate(19deg);
+}
+
+.line-two {
+  left: 51%;
+  top: 36%;
+  width: 31%;
+  transform: rotate(-25deg);
+}
+
+.line-three {
+  left: 53%;
+  top: 51%;
+  width: 40%;
+  transform: rotate(36deg);
+}
+
+.line-four {
+  left: 24%;
+  top: 85%;
+  width: 39%;
+  transform: rotate(-39deg);
+}
+
+/* Give the constellation room on mobile */
+
+@media (max-width: 600px) {
+  .star-memories {
+    left: 3%;
+    top: 13%;
+  }
+
+  .star-promises {
+    left: 75%;
+    top: 8%;
+  }
+
+  .star-gratitude {
+    left: 82%;
+    top: 67%;
+  }
+
+  .star-dreams {
+    left: 12%;
+    top: 84%;
+  }
+
+  .star-beyond {
+    left: 46%;
+    top: 46%;
+  }
+}
