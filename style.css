@@ -504,3 +504,142 @@ body {
     padding: 35px 22px;
   }
 }
+
+/* =================================
+   FIVE-POINTED CELESTIAL STARS
+   ================================= */
+
+/* Actual star shape */
+
+.constellation-star span {
+  width: 22px;
+  height: 22px;
+  border-radius: 0;
+  clip-path: polygon(
+    50% 0%,
+    62% 35%,
+    98% 35%,
+    69% 57%,
+    80% 95%,
+    50% 73%,
+    20% 95%,
+    31% 57%,
+    2% 35%,
+    38% 35%
+  );
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 5%,
+    #e0d5f5 45%,
+    #a88be8 100%
+  );
+
+  filter:
+    drop-shadow(0 0 5px #ffffff)
+    drop-shadow(0 0 12px #b9a5e8);
+
+  animation: starTwinkle 3s ease-in-out infinite alternate;
+}
+
+/* Surrounding stars */
+
+.star-memories span {
+  width: 20px;
+  height: 20px;
+}
+
+.star-promises span {
+  width: 22px;
+  height: 22px;
+}
+
+.star-gratitude span {
+  width: 19px;
+  height: 19px;
+}
+
+.star-dreams span {
+  width: 21px;
+  height: 21px;
+}
+
+/* The central star */
+
+.star-beyond {
+  left: 47%;
+  top: 45%;
+  z-index: 4;
+}
+
+.star-beyond span {
+  width: 58px;
+  height: 58px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #fffaff 25%,
+    #e4d4ff 55%,
+    #a987ef 100%
+  );
+
+  filter:
+    drop-shadow(0 0 7px #ffffff)
+    drop-shadow(0 0 18px #e0caff)
+    drop-shadow(0 0 35px #b99aff)
+    drop-shadow(0 0 60px #8561d9);
+
+  animation: heartStarGlow 2.8s ease-in-out infinite alternate;
+}
+
+/* Gentle twinkling */
+
+@keyframes starTwinkle {
+  from {
+    opacity: 0.65;
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.15) rotate(3deg);
+  }
+}
+
+/* Powerful central glow */
+
+@keyframes heartStarGlow {
+  from {
+    transform: scale(1);
+    filter:
+      drop-shadow(0 0 8px #ffffff)
+      drop-shadow(0 0 20px #d9c4ff)
+      drop-shadow(0 0 40px #a987ef)
+      drop-shadow(0 0 65px #8561d9);
+  }
+
+  to {
+    transform: scale(1.18);
+    filter:
+      drop-shadow(0 0 15px #ffffff)
+      drop-shadow(0 0 30px #eee0ff)
+      drop-shadow(0 0 55px #b99aff)
+      drop-shadow(0 0 85px #8561d9);
+  }
+}
+
+/* Central star hover */
+
+.star-beyond:hover span {
+  transform: scale(1.3);
+}
+
+/* Mobile adjustment */
+
+@media (max-width: 600px) {
+  .star-beyond span {
+    width: 48px;
+    height: 48px;
+  }
+}
