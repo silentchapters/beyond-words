@@ -95,10 +95,19 @@ const messages = {
     text: "Some hopes are carried quietly, waiting for their own time to bloom."
   },
 
-  beyond: {
-    title: "Beyond Words",
-    text: "And then there are feelings that words simply cannot contain."
-  }
+  
+beyond: {
+  title: "Beyond Words",
+  text: "And then there are feelings that words simply cannot contain."
+},
+prayer: {
+  title: "Prayer",
+  text: "A quiet place for the words you choose to share."
+},
+devotion: {
+  title: "Devotion",
+  text: "A little space for what devotion means to you."
+}
 };
 
 // Open individual messages
