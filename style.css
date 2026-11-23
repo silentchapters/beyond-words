@@ -1,0 +1,272 @@
+
+/* =================================
+   BEYOND WORDS
+   Everything My Heart Holds
+   ================================= */
+
+:root {
+  --night: #080b20;
+  --deep-violet: #17132f;
+  --lavender: #b9a5e8;
+  --soft-lavender: #e0d5f5;
+  --gold: #e9d2a0;
+  --white: #f8f5ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--night);
+  color: var(--white);
+  font-family: Georgia, serif;
+}
+
+/* Main universe */
+
+.universe {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(95, 70, 135, 0.32),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #080b20 0%,
+      #17132f 48%,
+      #54436e 78%,
+      #17132f 100%
+    );
+}
+
+/* Atmospheric glow */
+
+.universe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse at 50% 72%,
+      rgba(204, 170, 224, 0.18),
+      transparent 42%
+    );
+  pointer-events: none;
+}
+
+/* Star field */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px rgba(220, 210, 255, 0.55);
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Shooting star */
+
+.shooting-star {
+  position: absolute;
+  top: 18%;
+  left: 75%;
+  width: 110px;
+  height: 1px;
+  opacity: 0;
+  transform: rotate(-35deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--soft-lavender),
+    white
+  );
+  box-shadow: 0 0 12px var(--lavender);
+  animation: shooting 8s ease-in-out infinite;
+}
+
+@keyframes shooting {
+  0%, 72% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-35deg);
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  88% {
+    opacity: 0;
+    transform: translate(-240px, 150px) rotate(-35deg);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Main title */
+
+.intro {
+  position: relative;
+  z-index: 2;
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.intro h1 {
+  font-family: "Lucida Calligraphy", cursive;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: var(--soft-lavender);
+  text-shadow: 0 0 25px rgba(190, 160, 235, 0.4);
+  animation: fadeIn 3s ease forwards;
+}
+
+.intro p {
+  margin-top: 22px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  letter-spacing: 3px;
+  color: var(--gold);
+  animation: fadeIn 4s ease forwards;
+}
+
+.enter-button {
+  margin-top: 55px;
+  padding: 13px 38px;
+  border: 1px solid rgba(224, 213, 245, 0.6);
+  border-radius: 30px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.04);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.enter-button:hover {
+  background: rgba(185, 165, 232, 0.18);
+  box-shadow: 0 0 25px rgba(185, 165, 232, 0.3);
+}
+
+/* Ocean */
+
+.ocean {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(83, 67, 110, 0.2),
+      #10142b 85%
+    );
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  top: -25px;
+  left: -50%;
+  width: 200%;
+  height: 70px;
+  border-radius: 45%;
+  background: rgba(190, 170, 225, 0.08);
+  animation: waveMotion 12s linear infinite;
+}
+
+.wave:nth-child(2) {
+  top: -15px;
+  opacity: 0.5;
+  animation-duration: 17s;
+  animation-direction: reverse;
+}
+
+@keyframes waveMotion {
+  from {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(25%) rotate(8deg);
+  }
+}
+
+/* Entrance fade */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 600px) {
+  .intro {
+    min-height: 72vh;
+  }
+
+  .intro h1 {
+    letter-spacing: 1px;
+  }
+
+  .intro p {
+    letter-spacing: 2px;
+  }
+
+  .ocean {
+    height: 25vh;
+  }
+}
