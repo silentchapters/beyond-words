@@ -723,18 +723,33 @@ body {
    THE TWO NEW CONSTELLATION STARS
    ================================= */
 
-/* Prayer — far left, around the middle */
+
+/* Prayer — far left, slightly above the middle */
 
 .star-prayer {
-  left: 1%;
-  top: 46%;
+  left: 0%;
+  top: 30%;
 }
 
-/* Devotion — upper-right corner */
+/* Devotion — far upper-right, away from Promises */
 
 .star-devotion {
-  left: 84%;
-  top: 1%;
+  left: 88%;
+  top: 0%;
+}
+
+/* Mobile positioning */
+
+@media (max-width: 600px) {
+  .star-prayer {
+    left: 0%;
+    top: 29%;
+  }
+
+  .star-devotion {
+    left: 86%;
+    top: 0%;
+  }
 }
 
 /* Mobile positioning */
