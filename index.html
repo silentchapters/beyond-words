@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#aeb9e8">
+  <title>Beyond Words</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="universe">
+    <div class="starfield" aria-hidden="true"></div>
+    <div class="nebula nebula-one" aria-hidden="true"></div>
+    <div class="nebula nebula-two" aria-hidden="true"></div>
+
+    <section class="intro" id="intro">
+      <p class="eyebrow">A little universe, made with love</p>
+      <h1>Beyond Words</h1>
+      <p class="subtitle">Everything My Heart Holds</p>
+      <button class="enter-button" id="enterButton">Enter</button>
+    </section>
+
+    <section class="explorer" id="explorer" aria-label="Explore the stars" hidden>
+      <header class="explorer-heading">
+        <h2>Everything I Couldn't Put Into Words</h2>
+        <p>You hold a special place in my heart, Mamma. <span>♾️ ⚓</span></p>
+      </header>
+      <div class="sky" id="sky">
+        <div class="star-trail" aria-hidden="true"></div>
+        <button class="moving-star star-memories" data-letter="memories" aria-label="Open Memories">
+          <span class="star-shape"></span><span class="star-label">Memories</span>
+        </button>
+        <button class="moving-star star-promises" data-letter="promises" aria-label="Open Promises">
+          <span class="star-shape"></span><span class="star-label">Promises</span>
+        </button>
+        <button class="moving-star star-gratitude" data-letter="gratitude" aria-label="Open Gratitude">
+          <span class="star-shape"></span><span class="star-label">Gratitude</span>
+        </button>
+        <button class="moving-star star-dreams" data-letter="dreams" aria-label="Open Dreams">
+          <span class="star-shape"></span><span class="star-label">Dreams</span>
+        </button>
+        <button class="moving-star star-prayer" data-letter="prayer" aria-label="Open Prayer">
+          <span class="star-shape"></span><span class="star-label">Prayer</span>
+        </button>
+        <button class="moving-star star-devotion" data-letter="devotion" aria-label="Open Devotion">
+          <span class="star-shape"></span><span class="star-label">Devotion</span>
+        </button>
+
+        <button class="beyond-trigger" id="beyondTrigger" aria-label="Open the confidential letter" hidden>
+          <span class="beyond-glow"></span>
+          <span class="beyond-star">✦</span>
+          <span class="beyond-label">Beyond Words</span>
+        </button>
+      </div>
+      <p class="hint" id="hint">Choose any star. Your little universe is waiting.</p>
+    </section>
+
+    <section class="letter-modal" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle" hidden>
+      <div class="letter-card">
+        <button class="close-button" id="closeLetter" aria-label="Close letter">×</button>
+        <p class="letter-kicker">A letter from my heart</p>
+        <h2 id="letterTitle"></h2>
+        <div class="letter-body" id="letterBody"></div>
+      </div>
+    </section>
+
+    <section class="envelope-scene" id="envelopeScene" role="dialog" aria-modal="true" aria-label="A confidential letter" hidden>
+      <button class="close-button envelope-close" id="closeEnvelope" aria-label="Close envelope">×</button>
+      <p class="envelope-intro">A little something, meant just for you</p>
+      <div class="envelope-wrap" id="envelopeWrap">
+        <div class="letter-peek" aria-hidden="true"></div>
+        <div class="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-front"></div>
+          <button class="wax-seal" id="waxSeal" aria-label="Break the seal and open your confidential letter">
+            <span>Confidential<br>for My Actress</span>
+          </button>
+        </div>
+      </div>
+      <p class="seal-instruction" id="sealInstruction">Press the seal to open your letter</p>
+      <div class="unfolded-letter" id="unfoldedLetter" hidden>
+        <button class="close-button unfolded-close" id="closeUnfolded" aria-label="Close letter">×</button>
+        <p class="letter-kicker">For your eyes only</p>
+        <h2>Beyond Words</h2>
+        <div class="letter-body" id="beyondBody"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
