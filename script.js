@@ -423,9 +423,14 @@ document.addEventListener("keydown", (event) => {
   }
 });
 finalWaxSeal.addEventListener("click", () => {
-  finalEnvelopeWrap.hidden = true;
+  finalWaxSeal.disabled = true;
+  finalEnvelopeWrap.classList.add("opening");
   finalInstruction.hidden = true;
-  document.getElementById("finalLetter").hidden = false;
+
+  window.setTimeout(() => {
+    finalEnvelopeWrap.hidden = true;
+    document.getElementById("finalLetter").hidden = false;
+  }, 1000);
 });
 finalBackButton.addEventListener("click", () => {
   finalScene.hidden = true;
