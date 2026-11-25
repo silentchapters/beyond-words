@@ -275,8 +275,8 @@ movingStars.forEach((star) => {
     explored.add(key);
     openLetter(key);
 
-    if (explored.size >= 2) revealHiddenMoon();
-    if (explored.size >= 3) revealBeyond();
+   if (explored.size >= 6) revealHiddenMoon();
+if (explored.size >= 3) revealBeyond();
   });
 });
 
