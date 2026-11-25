@@ -362,8 +362,6 @@ function openMoonQuestion() {
 
 function closeMoonQuestion() {
   moonModal.hidden = true;
-  hiddenMoonTrigger.hidden = true;
-  hiddenMoonClosed = true;
   document.body.classList.remove("modal-open");
 }
 function showMoonResponse(title, paragraphs) {
