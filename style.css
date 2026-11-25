@@ -122,9 +122,18 @@ button { font: inherit; }
   100% { opacity:1; transform:translate(-50%,-50%) scale(1) rotate(0); }
 }
 .beyond-star {
-  font-size:76px; line-height:1; color:#fff9e9;
-  text-shadow:0 0 8px white,0 0 22px #fff,0 0 42px #a48bd6,0 0 75px #897bc2;
-  animation: specialPulse 2.4s ease-in-out infinite alternate;
+  font-size:100px;
+  line-height:1;
+  font-weight:400;
+  color:#fffdf2;
+  text-shadow:
+    0 0 8px #ffffff,
+    0 0 18px #fff9e8,
+    0 0 35px #f5e7ff,
+    0 0 58px #b8a4ed,
+    0 0 95px #897bc2;
+  animation:specialPulse 2.4s ease-in-out infinite alternate;
+  filter:drop-shadow(0 0 12px rgba(255,255,255,.9));
 }
 @keyframes specialPulse { to { text-shadow:0 0 14px white,0 0 34px #fff,0 0 60px #a48bd6,0 0 95px #897bc2; transform:scale(1.08); } }
 .beyond-label { font-size:.95rem; color:#4c4a72; font-weight:600; }
@@ -187,7 +196,7 @@ button { font: inherit; }
   .star-dreams { left:7%; top:66%; }
   .star-prayer { left:39%; top:31%; }
   .star-devotion { left:43%; top:78%; }
-  .beyond-star { font-size:68px; }
+  .beyond-star { font-size:86px; }
   .letter-card, .unfolded-letter { padding:38px 22px 28px; max-height:86vh; }
   .letter-body { font-size:.94rem; line-height:1.75; }
   .envelope-wrap { width:88vw; height:58vw; min-height:190px; }
