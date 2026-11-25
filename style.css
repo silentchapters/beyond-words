@@ -288,8 +288,8 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
 
 .hidden-moon-trigger {
   position:absolute;
-  left:50%;
-  top:7%;
+  left:35%;
+  top:1%;
   z-index:3;
   display:flex;
   flex-direction:column;
@@ -755,4 +755,40 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
   box-shadow:
     0 0 15px rgba(230,185,105,.7),
     0 0 32px rgba(230,185,105,.45);
+}
+/* Final Golden Envelope Opening Animation */
+
+.final-envelope-flap {
+  transform-origin: top;
+  transition: transform 1s ease;
+  backface-visibility: hidden;
+}
+
+.final-wax-seal {
+  transition: transform .4s ease, opacity .5s ease;
+}
+
+.final-envelope-wrap.opening .final-envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.final-envelope-wrap.opening .final-wax-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.5) rotate(20deg);
+  pointer-events: none;
+}
+
+.final-letter {
+  animation: finalLetterReveal 1s ease both;
+}
+
+@keyframes finalLetterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
