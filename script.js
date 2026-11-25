@@ -324,12 +324,15 @@ waxSeal.addEventListener("click", () => {
   }, 850);
 });
 
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    if (!envelopeScene.hidden) closeEnvelopeScene();
+    if (!scriptureScene.hidden) closeScriptureScene();
+    else if (!envelopeScene.hidden) closeEnvelopeScene();
     else if (!letterModal.hidden) closeLetterPanel();
   }
 });
+
 // Hidden Moon interaction
 
 const hiddenMoonTrigger = document.getElementById("hiddenMoonTrigger");
@@ -349,6 +352,89 @@ const finalWaxSeal = document.getElementById("finalWaxSeal");
 const finalEnvelopeWrap = document.getElementById("finalEnvelopeWrap");
 const finalInstruction = document.getElementById("finalInstruction");
 const finalBackButton = document.getElementById("finalBackButton");
+
+/* =================================
+   THREE VERSES, ONE FAITH
+================================= */
+
+const scriptureOpenButton = document.getElementById("scriptureOpenButton");
+const scriptureScene = document.getElementById("scriptureScene");
+const scriptureCloseButton = document.getElementById("scriptureCloseButton");
+const scriptureHeading = document.getElementById("scriptureHeading");
+const scriptureReference = document.getElementById("scriptureReference");
+const scriptureText = document.getElementById("scriptureText");
+const scripturePrevious = document.getElementById("scripturePrevious");
+const scriptureNext = document.getElementById("scriptureNext");
+
+const scriptures = [
+  {
+    heading: "HOPE",
+    reference: "Psalm 126:5 (NIV)",
+    text: "Those who sow with tears will reap with songs of joy."
+  },
+  {
+    heading: "RESTORATION",
+    reference: "Joel 2:25 (NIV)",
+    text: "I will repay you for the years the locusts have eaten."
+  },
+  {
+    heading: "TRUST",
+    reference: "Psalm 37:5 (NIV)",
+    text: "Commit your way to the LORD; trust in him and he will do this."
+  }
+];
+
+let currentScripture = 0;
+
+function showScripture(index) {
+  if (index < 0 || index >= scriptures.length) return;
+
+  currentScripture = index;
+
+  const verse = scriptures[currentScripture];
+
+  scriptureHeading.textContent = verse.heading;
+  scriptureReference.textContent = verse.reference;
+  scriptureText.textContent = verse.text;
+
+  scripturePrevious.disabled = currentScripture === 0;
+  scriptureNext.disabled = currentScripture === scriptures.length - 1;
+}
+
+function openScriptureScene() {
+  showScripture(0);
+  scriptureScene.hidden = false;
+}
+
+function closeScriptureScene() {
+  scriptureScene.hidden = true;
+}
+
+scriptureOpenButton.addEventListener("click", openScriptureScene);
+
+scriptureCloseButton.addEventListener("click", closeScriptureScene);
+
+scripturePrevious.addEventListener("click", () => {
+  showScripture(currentScripture - 1);
+});
+
+scriptureNext.addEventListener("click", () => {
+  showScripture(currentScripture + 1);
+});
+
+scriptureScene.addEventListener("click", (event) => {
+  if (event.target === scriptureScene) {
+    closeScriptureScene();
+  }
+});
+
+/* =================================
+   FINAL VERSE — AFTER THE UNIVERSE
+================================= */
+
+const faithEnding = document.getElementById("faithEnding");
+const faithEndingContent = document.getElementById("faithEndingContent");
+
 
 function openMoonQuestion() {
   moonChoices.hidden = false;
@@ -432,9 +518,36 @@ finalWaxSeal.addEventListener("click", () => {
     document.getElementById("finalLetter").hidden = false;
   }, 1000);
 });
+
+/* =================================
+   GIVING EVERYTHING BACK TO THE UNIVERSE
+================================= */
+
 finalBackButton.addEventListener("click", () => {
-  finalScene.hidden = true;
-  document.getElementById("finalLetter").hidden = true;
-  finalEnvelopeWrap.hidden = false;
-  finalInstruction.hidden = false;
+  if (finalBackButton.disabled) return;
+
+  finalBackButton.disabled = true;
+
+  // Prepare the completely quiet ending.
+  faithEndingContent.classList.remove("visible");
+  faithEnding.classList.remove("visible");
+
+  faithEnding.hidden = false;
+
+  // Allow the black screen to begin fading in.
+  requestAnimationFrame(() => {
+    faithEnding.classList.add("visible");
+  });
+
+  // Once the universe has disappeared, hide everything behind it.
+  window.setTimeout(() => {
+    finalScene.hidden = true;
+    document.getElementById("finalLetter").hidden = true;
+
+    // A quiet pause before the final scripture appears.
+    window.setTimeout(() => {
+      faithEndingContent.classList.add("visible");
+    }, 1000);
+
+  }, 2200);
 });
