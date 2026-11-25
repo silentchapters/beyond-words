@@ -266,21 +266,6 @@ function revealHiddenMoon() {
   if (!hiddenMoonTrigger) return;
 
   hiddenMoonTrigger.hidden = false;
-
-  try {
-    localStorage.setItem("beyondWordsMoonRevealed", "true");
-  } catch (error) {
-    // The Moon still works if browser storage is unavailable.
-  }
-}
-
-// Restore the Moon if she has already discovered it.
-try {
-  if (localStorage.getItem("beyondWordsMoonRevealed") === "true") {
-    revealHiddenMoon();
-  }
-} catch (error) {
-  // Continue normally if browser storage is unavailable.
 }
 
 movingStars.forEach((star) => {
