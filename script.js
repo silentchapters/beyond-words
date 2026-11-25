@@ -199,6 +199,8 @@ Loving you without seeing you every day is proof that it comes from my heart, no
 
 const intro = document.getElementById("intro");
 const enterButton = document.getElementById("enterButton");
+const musicButton = document.getElementById("musicButton");
+const backgroundMusic = document.getElementById("backgroundMusic");
 const explorer = document.getElementById("explorer");
 const movingStars = [...document.querySelectorAll(".moving-star")];
 const beyondTrigger = document.getElementById("beyondTrigger");
@@ -251,7 +253,14 @@ function revealBeyond() {
     hint.textContent = "A little secret has appeared. It will stay here until you're ready.";
   }, 900);
 }
-
+musicButton.addEventListener("click", () => {
+  backgroundMusic.play().then(() => {
+    musicButton.hidden = true;
+    enterButton.hidden = false;
+  }).catch((error) => {
+    console.log("Music could not start:", error);
+  });
+});
 enterButton.addEventListener("click", () => {
   intro.classList.add("leaving");
   window.setTimeout(() => {
