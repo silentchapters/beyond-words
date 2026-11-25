@@ -434,3 +434,59 @@ button { font: inherit; }
     gap:12px;
   }
 }
+/* Hidden Moon secret surprise */
+
+.moon-secret-trigger {
+  display:block;
+  margin:20px auto;
+  border:none;
+  background:transparent;
+  color:#fffdf2;
+  font-size:55px;
+  cursor:pointer;
+  text-shadow:
+    0 0 10px #ffffff,
+    0 0 22px #e4d8ff,
+    0 0 40px #b9a8ed,
+    0 0 65px #897bc2;
+  animation:secretStarGlow 2s ease-in-out infinite alternate;
+  transition:transform .3s;
+}
+
+.moon-secret-trigger:hover {
+  transform:scale(1.25);
+}
+
+.moon-secret-trigger[hidden],
+.moon-secret-message[hidden] {
+  display:none !important;
+}
+
+@keyframes secretStarGlow {
+  from {
+    filter:brightness(.8);
+    transform:scale(.95);
+  }
+  to {
+    filter:brightness(1.4);
+    transform:scale(1.12);
+  }
+}
+
+.moon-secret-message {
+  text-align:center;
+  color:#fffdf2;
+  font-size:19px;
+  line-height:1.7;
+  font-style:italic;
+  text-shadow:
+    0 0 8px #ffffff,
+    0 0 18px #dcd0ff,
+    0 0 30px #a99bdd;
+  animation:secretMessageGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes secretMessageGlow {
+  from { opacity:.75; }
+  to { opacity:1; }
+}
