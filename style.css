@@ -331,14 +331,40 @@ button { font: inherit; }
 
 .moon-choice, .moon-back {
   min-width:105px;
-  padding:11px 25px;
-  border:1px solid rgba(123,111,157,.35);
+  padding:12px 28px;
+  border:1px solid rgba(255,255,255,.8);
   border-radius:999px;
   background:rgba(220,215,244,.45);
   color:#514c70;
-  letter-spacing:1px;
+  letter-spacing:1.5px;
   cursor:pointer;
-  transition:transform .25s, background .25s, box-shadow .25s;
+  transition:transform .3s, box-shadow .3s;
+  animation:choiceGlow 2.5s ease-in-out infinite alternate;
+}
+
+.yes-choice {
+  box-shadow:0 0 10px #fff,
+             0 0 22px #dcd7f4,
+             0 0 38px #b9a8ed;
+}
+
+.no-choice {
+  background:rgba(220,230,248,.5);
+  box-shadow:0 0 10px #fff,
+             0 0 22px #c6d8f5,
+             0 0 38px #a9bce5;
+}
+
+@keyframes choiceGlow {
+  from { filter:brightness(.95); }
+  to { filter:brightness(1.15); }
+}
+
+.moon-choice:hover {
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 0 16px #fff,
+             0 0 32px #cbbcf3,
+             0 0 52px #a99bdd;
 }
 
 .moon-choice:hover, .moon-back:hover {
@@ -347,9 +373,6 @@ button { font: inherit; }
   box-shadow:0 6px 18px rgba(74,73,125,.12);
 }
 
-.no-choice {
-  background:rgba(255,255,255,.45);
-}
 
 .moon-response {
   margin-top:12px;
