@@ -429,3 +429,9 @@ finalWaxSeal.addEventListener("click", () => {
   finalInstruction.hidden = true;
   document.getElementById("finalLetter").hidden = false;
 });
+finalBackButton.addEventListener("click", () => {
+  finalScene.hidden = true;
+  document.getElementById("finalLetter").hidden = true;
+  finalEnvelopeWrap.hidden = false;
+  finalInstruction.hidden = false;
+});
