@@ -26,6 +26,12 @@
       <h1>Beyond Words</h1>
 
       <p class="subtitle">Everything My Heart Holds</p>
+      <button
+  class="scripture-open-button"
+  id="scriptureOpenButton"
+  type="button">
+  ✧ Three Verses, One Faith ✧
+</button>
 
       <audio
         id="backgroundMusic"
@@ -42,7 +48,60 @@
         Enter
       </button>
     </section>
+    <!-- Three Verses, One Faith -->
+    <section
+      class="scripture-scene"
+      id="scriptureScene"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="scriptureHeading"
+      hidden>
 
+      <div class="scripture-card">
+
+        <button
+          class="close-button"
+          id="scriptureCloseButton"
+          aria-label="Return to opening page">
+          ×
+        </button>
+
+        <p class="scripture-kicker">Three Verses, One Faith</p>
+
+        <h2 id="scriptureHeading">HOPE</h2>
+
+        <p
+          class="scripture-reference"
+          id="scriptureReference">
+          Psalm 126:5 (NIV)
+        </p>
+
+        <p
+          class="scripture-text"
+          id="scriptureText">
+          Those who sow with tears will reap with songs of joy.
+        </p>
+
+        <div class="scripture-navigation">
+
+          <button
+            id="scripturePrevious"
+            type="button"
+            disabled>
+            Previous
+          </button>
+
+          <button
+            id="scriptureNext"
+            type="button">
+            Next
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+    
     <!-- Star Explorer -->
     <section
       class="explorer"
@@ -369,14 +428,31 @@
             class="final-signature">
 
           <button class="final-back-button" id="finalBackButton">
-            Return to Our Universe ✨
-          </button>
+  Give Everything Back to the Universe ✨
+</button>
 
         </div>
       </div>
 
     </section>
+    <!-- Final Scripture: After Giving Everything Back -->
+    <section
+      class="faith-ending"
+      id="faithEnding"
+      aria-label="Final Bible verse"
+      hidden>
 
+      <div
+        class="faith-ending-content"
+        id="faithEndingContent">
+
+        <p>We love because HE first loved us.</p>
+
+        <span>1 John 4:19</span>
+
+      </div>
+
+    </section>
   </main>
 </body>
 </html>
