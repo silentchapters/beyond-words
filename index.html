@@ -26,11 +26,19 @@
         <h2>Everything I Couldn't Put Into Words</h2>
         <p>You hold a special place in my heart, Mamma. <span>♾️ ⚓</span></p>
       </header>
-      <div class="sky" id="sky">
-        <div class="star-trail" aria-hidden="true"></div>
-        <button class="moving-star star-memories" data-letter="memories" aria-label="Open Memories">
-          <span class="star-shape"></span><span class="star-label">Memories</span>
-        </button>
+     <div class="sky" id="sky">
+  <div class="star-trail" aria-hidden="true"></div>
+
+  <button class="moving-star star-memories" data-letter="memories" aria-label="Open Memories">
+    <span class="star-shape"></span>
+    <span class="star-label">Memories</span>
+  </button>
+
+  <button class="hidden-moon-trigger" id="hiddenMoonTrigger"
+    aria-label="Open the hidden moon" hidden>
+    <span class="moon-shape"></span>
+    <span class="moon-label">A Hidden Moon</span>
+  </button>
         <button class="moving-star star-promises" data-letter="promises" aria-label="Open Promises">
           <span class="star-shape"></span><span class="star-label">Promises</span>
         </button>
@@ -86,6 +94,38 @@
         <div class="letter-body" id="beyondBody"></div>
       </div>
     </section>
+    <section class="moon-modal" id="moonModal"
+  role="dialog" aria-modal="true"
+  aria-labelledby="moonQuestionTitle" hidden>
+
+  <div class="moon-card">
+    <button class="close-button" id="closeMoon"
+      aria-label="Close question">×</button>
+
+    <p class="moon-kicker">A question from my heart</p>
+
+    <h2 id="moonQuestionTitle">For once, Baby...</h2>
+
+    <div class="moon-question">
+      <p>For once baby, can we stoped thinking about the world, about what others see in you in us, about what others think about you...</p>
+
+      <p>For once, lets focus on US Two IMPERFECT people who havent loved right by life itself.</p>
+
+      <p>Can we make this work????</p>
+    </div>
+
+    <div class="moon-choices" id="moonChoices">
+      <button class="moon-choice yes-choice" id="moonYes">Yes</button>
+      <button class="moon-choice no-choice" id="moonNo">No</button>
+    </div>
+
+    <div class="moon-response" id="moonResponse" hidden>
+      <h3 id="moonResponseTitle"></h3>
+      <div id="moonResponseText"></div>
+      <button class="moon-back" id="moonBack">Back</button>
+    </div>
+  </div>
+</section>
   </main>
 </body>
 </html>
