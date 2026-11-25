@@ -345,6 +345,9 @@ const moonBack = document.getElementById("moonBack");
 const moonSecretTrigger = document.getElementById("moonSecretTrigger");
 const moonSecretMessage = document.getElementById("moonSecretMessage");
 const finalScene = document.getElementById("finalScene");
+const finalWaxSeal = document.getElementById("finalWaxSeal");
+const finalEnvelopeWrap = document.getElementById("finalEnvelopeWrap");
+const finalInstruction = document.getElementById("finalInstruction");
 
 function openMoonQuestion() {
   moonChoices.hidden = false;
@@ -419,4 +422,9 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !moonModal.hidden) {
     closeMoonQuestion();
   }
+});
+finalWaxSeal.addEventListener("click", () => {
+  finalEnvelopeWrap.hidden = true;
+  finalInstruction.hidden = true;
+  document.getElementById("finalLetter").hidden = false;
 });
