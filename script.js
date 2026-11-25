@@ -348,6 +348,7 @@ const finalScene = document.getElementById("finalScene");
 const finalWaxSeal = document.getElementById("finalWaxSeal");
 const finalEnvelopeWrap = document.getElementById("finalEnvelopeWrap");
 const finalInstruction = document.getElementById("finalInstruction");
+const finalBackButton = document.getElementById("finalBackButton");
 
 function openMoonQuestion() {
   moonChoices.hidden = false;
