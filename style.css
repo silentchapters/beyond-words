@@ -141,9 +141,13 @@ button { font: inherit; }
 }
 @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
 .explorer-heading { text-align:center; position:relative; z-index:2; }
-.explorer-heading h2 { margin:0; font-family:'Parisienne',cursive; font-size:clamp(2rem,5vw,3.6rem); font-weight:400; color:#55517d; }
-.explorer-heading p { margin:9px 0 0; font-size:.96rem; color:#626486; font-style:italic; }
-.explorer-heading p span { color:#716a9c; }
+.explorer-heading h2 { margin:0; font-family:'Parisienne',cursive; font-size:clamp(2rem,5vw,3.6rem); font-weight:400; color:#ffffff; }
+.explorer-heading p { margin:9px 0 0; font-size:.96rem; color:#ffffff;
+text-shadow:0 0 8px rgba(255,255,255,.9),
+            0 0 18px rgba(220,210,255,.8); font-style:italic; }
+.explorer-heading p span {
+  color:#fffdf7;
+}
 .sky { position:relative; width:min(94vw,850px); height:min(66vh,570px); min-height:390px; margin:10px auto 0; }
 .moving-star, .beyond-trigger {
   position:absolute; display:flex; flex-direction:column; align-items:center; justify-content:center;
