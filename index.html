@@ -1,193 +1,382 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#aeb9e8">
+
   <title>Beyond Words</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
   <main class="universe">
+
     <div class="starfield" aria-hidden="true"></div>
     <div class="nebula nebula-one" aria-hidden="true"></div>
     <div class="nebula nebula-two" aria-hidden="true"></div>
 
+    <!-- Opening Screen -->
     <section class="intro" id="intro">
       <p class="eyebrow">A little universe, made with love</p>
+
       <h1>Beyond Words</h1>
+
       <p class="subtitle">Everything My Heart Holds</p>
-      <audio id="backgroundMusic" src="khat-female-version.mp3" loop preload="auto"></audio>
 
-<button class="music-button" id="musicButton">♫ Play Music</button>
+      <audio
+        id="backgroundMusic"
+        src="khat-female-version.mp3"
+        loop
+        preload="auto">
+      </audio>
 
-<button class="enter-button" id="enterButton" hidden>Enter</button>
+      <button class="music-button" id="musicButton">
+        ♫ Play Music
+      </button>
+
+      <button class="enter-button" id="enterButton" hidden>
+        Enter
+      </button>
     </section>
 
-    <section class="explorer" id="explorer" aria-label="Explore the stars" hidden>
+    <!-- Star Explorer -->
+    <section
+      class="explorer"
+      id="explorer"
+      aria-label="Explore the stars"
+      hidden>
+
       <header class="explorer-heading">
         <h2>Everything I Couldn't Put Into Words</h2>
-        <p>You hold a special place in my heart, Mamma. <span>♾️ ⚓</span></p>
+
+        <p>
+          You hold a special place in my heart, Mamma.
+          <span>♾️ ⚓</span>
+        </p>
       </header>
-     <div class="sky" id="sky">
-  <div class="star-trail" aria-hidden="true"></div>
 
-  <button class="moving-star star-memories" data-letter="memories" aria-label="Open Memories">
-    <span class="star-shape"></span>
-    <span class="star-label">Memories</span>
-  </button>
+      <div class="sky" id="sky">
 
-  <button class="hidden-moon-trigger" id="hiddenMoonTrigger"
-    aria-label="Open the hidden moon" hidden>
-    <span class="moon-shape"></span>
-    <span class="moon-label">A Hidden Moon</span>
-  </button>
-        <button class="moving-star star-promises" data-letter="promises" aria-label="Open Promises">
-          <span class="star-shape"></span><span class="star-label">Promises</span>
-        </button>
-        <button class="moving-star star-gratitude" data-letter="gratitude" aria-label="Open Gratitude">
-          <span class="star-shape"></span><span class="star-label">Gratitude</span>
-        </button>
-        <button class="moving-star star-dreams" data-letter="dreams" aria-label="Open Dreams">
-          <span class="star-shape"></span><span class="star-label">Dreams</span>
-        </button>
-        <button class="moving-star star-prayer" data-letter="prayer" aria-label="Open Prayer">
-          <span class="star-shape"></span><span class="star-label">Prayer</span>
-        </button>
-        <button class="moving-star star-devotion" data-letter="devotion" aria-label="Open Devotion">
-          <span class="star-shape"></span><span class="star-label">Devotion</span>
+        <div class="star-trail" aria-hidden="true"></div>
+
+        <button
+          class="moving-star star-memories"
+          data-letter="memories"
+          aria-label="Open Memories">
+
+          <span class="star-shape"></span>
+          <span class="star-label">Memories</span>
         </button>
 
-        <button class="beyond-trigger" id="beyondTrigger" aria-label="Open the confidential letter" hidden>
+        <button
+          class="hidden-moon-trigger"
+          id="hiddenMoonTrigger"
+          aria-label="Open the hidden moon"
+          hidden>
+
+          <span class="moon-shape"></span>
+          <span class="moon-label">A Hidden Moon</span>
+        </button>
+
+        <button
+          class="moving-star star-promises"
+          data-letter="promises"
+          aria-label="Open Promises">
+
+          <span class="star-shape"></span>
+          <span class="star-label">Promises</span>
+        </button>
+
+        <button
+          class="moving-star star-gratitude"
+          data-letter="gratitude"
+          aria-label="Open Gratitude">
+
+          <span class="star-shape"></span>
+          <span class="star-label">Gratitude</span>
+        </button>
+
+        <button
+          class="moving-star star-dreams"
+          data-letter="dreams"
+          aria-label="Open Dreams">
+
+          <span class="star-shape"></span>
+          <span class="star-label">Dreams</span>
+        </button>
+
+        <button
+          class="moving-star star-prayer"
+          data-letter="prayer"
+          aria-label="Open Prayer">
+
+          <span class="star-shape"></span>
+          <span class="star-label">Prayer</span>
+        </button>
+
+        <button
+          class="moving-star star-devotion"
+          data-letter="devotion"
+          aria-label="Open Devotion">
+
+          <span class="star-shape"></span>
+          <span class="star-label">Devotion</span>
+        </button>
+
+        <button
+          class="beyond-trigger"
+          id="beyondTrigger"
+          aria-label="Open the confidential letter"
+          hidden>
+
           <span class="beyond-glow"></span>
           <span class="beyond-star">✧</span>
           <span class="beyond-label">Beyond Words</span>
         </button>
+
       </div>
-      <p class="hint" id="hint">Choose any star. Your little universe is waiting.</p>
+
+      <p class="hint" id="hint">
+        Choose any star. Your little universe is waiting.
+      </p>
+
     </section>
 
-    <section class="letter-modal" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle" hidden>
+    <!-- Individual Letters -->
+    <section
+      class="letter-modal"
+      id="letterModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="letterTitle"
+      hidden>
+
       <div class="letter-card">
-        <button class="close-button" id="closeLetter" aria-label="Close letter">×</button>
+
+        <button
+          class="close-button"
+          id="closeLetter"
+          aria-label="Close letter">
+          ×
+        </button>
+
         <p class="letter-kicker">A letter from my heart</p>
+
         <h2 id="letterTitle"></h2>
+
         <div class="letter-body" id="letterBody"></div>
+
       </div>
     </section>
 
-    <section class="envelope-scene" id="envelopeScene" role="dialog" aria-modal="true" aria-label="A confidential letter" hidden>
-      <button class="close-button envelope-close" id="closeEnvelope" aria-label="Close envelope">×</button>
-      <p class="envelope-intro">A little something, meant just for you</p>
+    <!-- Confidential Envelope -->
+    <section
+      class="envelope-scene"
+      id="envelopeScene"
+      role="dialog"
+      aria-modal="true"
+      aria-label="A confidential letter"
+      hidden>
+
+      <button
+        class="close-button envelope-close"
+        id="closeEnvelope"
+        aria-label="Close envelope">
+        ×
+      </button>
+
+      <p class="envelope-intro">
+        A little something, meant just for you
+      </p>
+
       <div class="envelope-wrap" id="envelopeWrap">
+
         <div class="letter-peek" aria-hidden="true"></div>
+
         <div class="envelope">
+
           <div class="envelope-flap"></div>
           <div class="envelope-front"></div>
-          <button class="wax-seal" id="waxSeal" aria-label="Break the seal and open your confidential letter">
+
+          <button
+            class="wax-seal"
+            id="waxSeal"
+            aria-label="Break the seal and open your confidential letter">
+
             <span>Confidential<br>for My Actress</span>
+
           </button>
+
         </div>
       </div>
-      <p class="seal-instruction" id="sealInstruction">Press the seal to open your letter</p>
+
+      <p class="seal-instruction" id="sealInstruction">
+        Press the seal to open your letter
+      </p>
+
       <div class="unfolded-letter" id="unfoldedLetter" hidden>
-        <button class="close-button unfolded-close" id="closeUnfolded" aria-label="Close letter">×</button>
+
+        <button
+          class="close-button unfolded-close"
+          id="closeUnfolded"
+          aria-label="Close letter">
+          ×
+        </button>
+
         <p class="letter-kicker">For your eyes only</p>
+
         <h2>Beyond Words</h2>
+
         <div class="letter-body" id="beyondBody"></div>
+
       </div>
     </section>
-    <section class="moon-modal" id="moonModal"
-  role="dialog" aria-modal="true"
-  aria-labelledby="moonQuestionTitle" hidden>
 
-  <div class="moon-card">
-    <button class="close-button" id="closeMoon"
-      aria-label="Close question">×</button>
+    <!-- Hidden Moon Question -->
+    <section
+      class="moon-modal"
+      id="moonModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="moonQuestionTitle"
+      hidden>
 
-    <p class="moon-kicker">A question from my heart</p>
+      <div class="moon-card">
 
-    <h2 id="moonQuestionTitle">For once, Baby...</h2>
+        <button
+          class="close-button"
+          id="closeMoon"
+          aria-label="Close question">
+          ×
+        </button>
 
-    <div class="moon-question">
-      <p>For once baby, can we stoped thinking about the world, about what others see in you in us, about what others think about you...</p>
+        <p class="moon-kicker">A question from my heart</p>
 
-      <p>For once, lets focus on US Two IMPERFECT people who havent loved right by life itself.</p>
+        <h2 id="moonQuestionTitle">
+          For once, Baby...
+        </h2>
 
-      <p>Can we make this work????</p>
-    </div>
+        <div class="moon-question">
 
-    <div class="moon-choices" id="moonChoices">
-      <button class="moon-choice yes-choice" id="moonYes">Yes</button>
-      <button class="moon-choice no-choice" id="moonNo">No</button>
-    </div>
+          <p>
+            For once baby, can we stoped thinking about the world,
+            about what others see in you in us, about what others
+            think about you...
+          </p>
 
-    <div class="moon-response" id="moonResponse" hidden>
-      <h3 id="moonResponseTitle"></h3>
-      <div id="moonResponseText"></div>
-      <button class="moon-secret-trigger" id="moonSecretTrigger" hidden>
-  ✧
-</button>
+          <p>
+            For once, lets focus on US Two IMPERFECT people who
+            havent loved right by life itself.
+          </p>
 
-<p class="moon-secret-message" id="moonSecretMessage" hidden>
-  to KISS and WORSHIP those feet of yours my Love ❤️
-</p>
-      <button class="moon-back" id="moonBack">Back</button>
-    </div>
-  </div>
-</section>
+          <p>Can we make this work????</p>
+
+        </div>
+
+        <div class="moon-choices" id="moonChoices">
+
+          <button class="moon-choice yes-choice" id="moonYes">
+            Yes
+          </button>
+
+          <button class="moon-choice no-choice" id="moonNo">
+            No
+          </button>
+
+        </div>
+
+        <div class="moon-response" id="moonResponse" hidden>
+
+          <h3 id="moonResponseTitle"></h3>
+
+          <div id="moonResponseText"></div>
+
+          <button
+            class="moon-secret-trigger"
+            id="moonSecretTrigger"
+            hidden>
+            ✧
+          </button>
+
+          <p
+            class="moon-secret-message"
+            id="moonSecretMessage"
+            hidden>
+            to KISS and WORSHIP those feet of yours my Love ❤️
+          </p>
+
+          <button class="moon-back" id="moonBack">
+            Back
+          </button>
+
+        </div>
+
       </div>
-</section>
+    </section>
 
-<!-- Final Golden Envelope Scene -->
-<section class="final-scene" id="finalScene" hidden>
+    <!-- Final Golden Envelope Scene -->
+    <section class="final-scene" id="finalScene" hidden>
 
-  <div class="golden-particles" aria-hidden="true"></div>
+      <div class="golden-particles" aria-hidden="true"></div>
 
-  <p class="final-intro">And finally... something from my heart</p>
+      <p class="final-intro">
+        And finally... something from my heart
+      </p>
 
-  <div class="final-envelope-wrap" id="finalEnvelopeWrap">
+      <div class="final-envelope-wrap" id="finalEnvelopeWrap">
 
-    <div class="final-letter-peek"></div>
+        <div class="final-letter-peek"></div>
 
-    <div class="final-envelope">
-      <div class="final-envelope-flap"></div>
-      <div class="final-envelope-front"></div>
+        <div class="final-envelope">
 
-      <button class="final-wax-seal" id="finalWaxSeal"
-        aria-label="Open the final letter">
-        ♾️
-      </button>
-    </div>
+          <div class="final-envelope-flap"></div>
+          <div class="final-envelope-front"></div>
 
-  </div>
+          <button
+            class="final-wax-seal"
+            id="finalWaxSeal"
+            aria-label="Open the final letter">
+            ♾️
+          </button>
 
-  <p class="final-instruction" id="finalInstruction">
-    One last little letter, waiting for you...
-  </p>
+        </div>
+      </div>
 
-  <div class="final-letter" id="finalLetter" hidden>
-    <h2>Beyond Everything</h2>
-    <div class="final-letter-body" id="finalLetterBody">
+      <p class="final-instruction" id="finalInstruction">
+        One last little letter, waiting for you...
+      </p>
 
-  <p>“In a sky full of STARS, I think I see YOU, Mamma. ❤️♾️”</p>
+      <div class="final-letter" id="finalLetter" hidden>
 
-  <p>❤️ I LOVE YOU, MAMMA ❤️</p>
-<img
-  src="duh-signature.png"
-  alt="Duh's digital signature"
-  class="final-signature"
->
-      <button class="final-back-button" id="finalBackButton">
-  Return to Our Universe ✨
-</button>
-</div>
-  </div>
+        <h2>Beyond Everything</h2>
 
-</section>
+        <div class="final-letter-body" id="finalLetterBody">
 
-  </main>
+          <p>
+            “In a sky full of STARS, I think I see YOU,
+            Mamma. ❤️♾️”
+          </p>
+
+          <p>❤️ I LOVE YOU, MAMMA ❤️</p>
+
+          <img
+            src="duh-signature.png"
+            alt="Duh's digital signature"
+            class="final-signature">
+
+          <button class="final-back-button" id="finalBackButton">
+            Return to Our Universe ✨
+          </button>
+
+        </div>
+      </div>
+
+    </section>
+
   </main>
 </body>
 </html>
