@@ -572,3 +572,117 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
   from { opacity:.75; }
   to { opacity:1; }
 }
+/* =================================
+   FINAL GOLDEN ENVELOPE SCENE
+================================= */
+
+.final-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 25px;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(255,215,145,.18), transparent 45%),
+    linear-gradient(145deg, #17152f, #302344 50%, #172d43);
+  opacity: 1;
+}
+
+.final-scene[hidden] {
+  display: none !important;
+}
+
+.final-intro {
+  position: relative;
+  z-index: 2;
+  color: #fff4d6;
+  font-family: 'Parisienne', cursive;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  text-align: center;
+  text-shadow: 0 0 12px #f6d99b, 0 0 28px #d5a85e;
+  margin-bottom: 45px;
+}
+
+.final-envelope-wrap {
+  position: relative;
+  width: min(340px, 82vw);
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: goldenFloat 4s ease-in-out infinite;
+}
+
+.final-envelope {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  background: linear-gradient(145deg, #f8e7bd, #c99c53);
+  border: 2px solid #f9dfa6;
+  border-radius: 8px;
+  box-shadow:
+    0 0 20px rgba(255,215,145,.5),
+    0 0 50px rgba(230,180,90,.3),
+    0 20px 45px rgba(0,0,0,.35);
+}
+
+.final-envelope-front {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #f4dfb1, #c18b45);
+  clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+  z-index: 3;
+}
+
+.final-envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #fcebc7, #d3a65d);
+  clip-path: polygon(0 0, 100% 0, 50% 65%);
+  transform-origin: top;
+  z-index: 4;
+}
+
+.final-wax-seal {
+  position: absolute;
+  z-index: 5;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2px solid #ffe9b0;
+  background: radial-gradient(circle, #f7d98d, #a96d2d);
+  color: #fff8df;
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow:
+    0 0 12px #ffe4a3,
+    0 0 28px #e6b75e,
+    0 0 45px rgba(255,205,115,.6);
+  text-shadow: 0 0 8px white;
+  transition: transform .3s;
+}
+
+.final-wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.final-instruction {
+  color: #fff0cf;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-top: 35px;
+  text-shadow: 0 0 12px #f3d28c;
+}
+
+@keyframes goldenFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
