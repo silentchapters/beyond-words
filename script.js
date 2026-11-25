@@ -344,6 +344,7 @@ const moonResponseText = document.getElementById("moonResponseText");
 const moonBack = document.getElementById("moonBack");
 const moonSecretTrigger = document.getElementById("moonSecretTrigger");
 const moonSecretMessage = document.getElementById("moonSecretMessage");
+const finalScene = document.getElementById("finalScene");
 
 function openMoonQuestion() {
   moonChoices.hidden = false;
@@ -389,6 +390,13 @@ moonYes.addEventListener("click", () => {
 moonSecretTrigger.addEventListener("click", () => {
   moonSecretMessage.hidden = false;
   moonSecretTrigger.hidden = true;
+
+  window.setTimeout(() => {
+    moonModal.hidden = true;
+    document.body.classList.remove("modal-open");
+
+    finalScene.hidden = false;
+  }, 4000);
 });
 moonNo.addEventListener("click", () => {
   showMoonResponse("", [
