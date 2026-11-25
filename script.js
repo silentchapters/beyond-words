@@ -260,11 +260,37 @@ enterButton.addEventListener("click", () => {
   }, 850);
 });
 
+function revealHiddenMoon() {
+  const hiddenMoonTrigger = document.getElementById("hiddenMoonTrigger");
+
+  if (!hiddenMoonTrigger) return;
+
+  hiddenMoonTrigger.hidden = false;
+
+  try {
+    localStorage.setItem("beyondWordsMoonRevealed", "true");
+  } catch (error) {
+    // The Moon still works if browser storage is unavailable.
+  }
+}
+
+// Restore the Moon if she has already discovered it.
+try {
+  if (localStorage.getItem("beyondWordsMoonRevealed") === "true") {
+    revealHiddenMoon();
+  }
+} catch (error) {
+  // Continue normally if browser storage is unavailable.
+}
+
 movingStars.forEach((star) => {
   star.addEventListener("click", () => {
     const key = star.dataset.letter;
+
     explored.add(key);
     openLetter(key);
+
+    if (explored.size >= 2) revealHiddenMoon();
     if (explored.size >= 3) revealBeyond();
   });
 });
@@ -308,5 +334,78 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     if (!envelopeScene.hidden) closeEnvelopeScene();
     else if (!letterModal.hidden) closeLetterPanel();
+  }
+});
+// Hidden Moon interaction
+
+const hiddenMoonTrigger = document.getElementById("hiddenMoonTrigger");
+const moonModal = document.getElementById("moonModal");
+const closeMoon = document.getElementById("closeMoon");
+const moonYes = document.getElementById("moonYes");
+const moonNo = document.getElementById("moonNo");
+const moonChoices = document.getElementById("moonChoices");
+const moonResponse = document.getElementById("moonResponse");
+const moonResponseTitle = document.getElementById("moonResponseTitle");
+const moonResponseText = document.getElementById("moonResponseText");
+const moonBack = document.getElementById("moonBack");
+
+function openMoonQuestion() {
+  moonChoices.hidden = false;
+  moonResponse.hidden = true;
+  moonResponseTitle.textContent = "";
+  moonResponseText.replaceChildren();
+
+  moonModal.hidden = false;
+  document.body.classList.add("modal-open");
+}
+
+function closeMoonQuestion() {
+  moonModal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+function showMoonResponse(title, paragraphs) {
+  moonChoices.hidden = true;
+  moonResponse.hidden = false;
+  moonResponseTitle.textContent = title;
+  moonResponseText.replaceChildren();
+
+  paragraphs.forEach((paragraph) => {
+    const p = document.createElement("p");
+    p.textContent = paragraph;
+    moonResponseText.appendChild(p);
+  });
+}
+
+hiddenMoonTrigger.addEventListener("click", openMoonQuestion);
+
+moonYes.addEventListener("click", () => {
+  showMoonResponse("Then, take my hand... ❤️", [
+    "Give me your HAND and we will walk together in this path of LIFE.",
+    "all through Your Life ill be by your side, till death do us part",
+    "im serious Baby"
+  ]);
+});
+
+moonNo.addEventListener("click", () => {
+  showMoonResponse("", [
+    "i understand and i wont force you to do so"
+  ]);
+});
+
+moonBack.addEventListener("click", () => {
+  moonChoices.hidden = false;
+  moonResponse.hidden = true;
+});
+
+closeMoon.addEventListener("click", closeMoonQuestion);
+
+moonModal.addEventListener("click", (event) => {
+  if (event.target === moonModal) closeMoonQuestion();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !moonModal.hidden) {
+    closeMoonQuestion();
   }
 });
