@@ -724,3 +724,10 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
   text-align: left;
   white-space: pre-line;
 }
+.final-signature {
+  display: block;
+  width: min(220px, 65%);
+  height: auto;
+  margin: 28px auto 0;
+  object-fit: contain;
+}
