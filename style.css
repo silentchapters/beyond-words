@@ -108,12 +108,13 @@ button { font: inherit; }
   transition: opacity 1s ease, transform 1s ease;
 }
 .intro.leaving { opacity:0; transform:scale(1.03); }
-.eyebrow { letter-spacing:3px; text-transform:uppercase; font-size:.72rem; color:#65678f; }
+.eyebrow { letter-spacing:3px; text-transform:uppercase; font-size:.72rem; color:#ffffff; }
 .intro h1 {
   margin:12px 0 0; font-family:'Parisienne', cursive; font-size:clamp(3.8rem, 10vw, 7rem);
-  font-weight:400; color:#55517d; text-shadow:0 4px 24px rgba(255,255,255,.75);
+  font-weight:400; color:#fffdf7; text-shadow:0 0 12px rgba(255,255,255,.8),
+            0 0 28px rgba(205,190,255,.65);
 }
-.subtitle { margin:8px 0 0; letter-spacing:3px; font-style:italic; color:#66648b; }
+.subtitle { margin:8px 0 0; letter-spacing:3px; font-style:italic; color:#fffdf7; }
 .enter-button, .music-button {
   margin-top:48px;
   padding:13px 42px;
@@ -169,7 +170,17 @@ button { font: inherit; }
   animation: starPulse 3s ease-in-out infinite alternate;
 }
 @keyframes starPulse { from { opacity:.78; transform:scale(.9); } to { opacity:1; transform:scale(1.12); } }
-.star-label, .beyond-label { font-size:.88rem; letter-spacing:.5px; white-space:nowrap; text-shadow:0 1px 8px rgba(255,255,255,.9); }
+.star-label, .beyond-label {
+  font-size:.88rem;
+  letter-spacing:.5px;
+  white-space:nowrap;
+  color:#ffffff;
+  font-weight:600;
+  text-shadow:
+    0 0 4px rgba(20,15,45,.9),
+    0 0 10px rgba(255,255,255,.95),
+    0 0 20px rgba(220,210,255,.8);
+}
 .moving-star:hover .star-shape, .moving-star:focus-visible .star-shape { transform:scale(1.35); }
 .moving-star:focus-visible, .beyond-trigger:focus-visible, button:focus-visible { outline:2px solid #fff; outline-offset:5px; border-radius:12px; }
 .hint { margin:0; text-align:center; font-size:.85rem; color:#67688c; font-style:italic; }
