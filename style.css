@@ -31,6 +31,59 @@ button { font: inherit; }
     radial-gradient(ellipse at 78% 68%, rgba(222,205,247,.78), transparent 38%),
     linear-gradient(145deg, #c9c7ed 0%, #b8c9ed 48%, #d8d2f1 100%);
 }
+
+/* Living Galaxy Background */
+
+.universe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(ellipse at 18% 20%, rgba(255,255,255,.62), transparent 32%),
+    radial-gradient(ellipse at 78% 68%, rgba(222,205,247,.78), transparent 38%),
+    linear-gradient(145deg, #c9c7ed 0%, #b8c9ed 48%, #d8d2f1 100%);
+
+  animation: galaxyCycle 30s 1s infinite;
+}
+
+@keyframes galaxyCycle {
+
+  /* Lavender Dream */
+  0%, 6.67%, 93.33%, 100% {
+    background:
+      radial-gradient(ellipse at 18% 20%, rgba(255,255,255,.62), transparent 32%),
+      radial-gradient(ellipse at 78% 68%, rgba(222,205,247,.78), transparent 38%),
+      linear-gradient(145deg, #c9c7ed 0%, #b8c9ed 48%, #d8d2f1 100%);
+  }
+
+  /* Deep Cosmic Violet */
+  13.33%, 33.33% {
+    background:
+      radial-gradient(ellipse at 18% 20%, rgba(211,190,255,.38), transparent 32%),
+      radial-gradient(ellipse at 78% 68%, rgba(143,104,202,.48), transparent 38%),
+      linear-gradient(145deg, #241b45 0%, #49316d 48%, #191d40 100%);
+  }
+
+  /* Galactic Blue and Turquoise */
+  40%, 60% {
+    background:
+      radial-gradient(ellipse at 18% 20%, rgba(115,225,231,.35), transparent 32%),
+      radial-gradient(ellipse at 78% 68%, rgba(72,151,190,.48), transparent 38%),
+      linear-gradient(145deg, #142c50 0%, #176078 48%, #22244e 100%);
+  }
+
+  /* Colourful Milky Way */
+  66.67%, 86.67% {
+    background:
+      radial-gradient(ellipse at 18% 20%, rgba(239,158,220,.38), transparent 32%),
+      radial-gradient(ellipse at 78% 68%, rgba(105,194,220,.42), transparent 38%),
+      linear-gradient(145deg, #302047 0%, #653967 48%, #174457 100%);
+  }
+}
+
 .starfield {
   position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background-image:
