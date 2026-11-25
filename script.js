@@ -259,11 +259,11 @@ enterButton.addEventListener("click", () => {
     explorer.hidden = false;
   }, 850);
 });
-
+let hiddenMoonClosed = false;
 function revealHiddenMoon() {
   const hiddenMoonTrigger = document.getElementById("hiddenMoonTrigger");
 
-  if (!hiddenMoonTrigger) return;
+  if (!hiddenMoonTrigger || hiddenMoonClosed) return;
 
   hiddenMoonTrigger.hidden = false;
 }
