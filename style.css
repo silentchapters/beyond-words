@@ -61,13 +61,24 @@ button { font: inherit; }
   font-weight:400; color:#55517d; text-shadow:0 4px 24px rgba(255,255,255,.75);
 }
 .subtitle { margin:8px 0 0; letter-spacing:3px; font-style:italic; color:#66648b; }
-.enter-button {
-  margin-top:48px; padding:13px 42px; border:1px solid rgba(255,255,255,.8);
-  border-radius:999px; background:rgba(255,255,255,.25); color:#454568;
-  letter-spacing:2px; cursor:pointer; box-shadow:0 8px 28px rgba(74,73,125,.12);
+.enter-button, .music-button {
+  margin-top:48px;
+  padding:13px 42px;
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:999px;
+  background:rgba(255,255,255,.25);
+  color:#454568;
+  letter-spacing:2px;
+  cursor:pointer;
+  box-shadow:0 8px 28px rgba(74,73,125,.12);
   transition:transform .3s, background .3s, box-shadow .3s;
 }
-.enter-button:hover { transform:translateY(-3px); background:rgba(255,255,255,.5); box-shadow:0 12px 32px rgba(74,73,125,.2); }
+
+.enter-button:hover, .music-button:hover {
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.5);
+  box-shadow:0 12px 32px rgba(74,73,125,.2);
+}
 
 .explorer {
   min-height:100vh; min-height:100svh; padding:clamp(22px,5vh,52px) 18px 28px;
