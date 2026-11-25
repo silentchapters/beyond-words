@@ -347,9 +347,9 @@ function openMoonQuestion() {
 function closeMoonQuestion() {
   moonModal.hidden = true;
   hiddenMoonTrigger.hidden = true;
+  hiddenMoonClosed = true;
   document.body.classList.remove("modal-open");
 }
-
 function showMoonResponse(title, paragraphs) {
   moonChoices.hidden = true;
   moonResponse.hidden = false;
