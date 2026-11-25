@@ -520,18 +520,20 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
   margin:20px auto;
   border:none;
   background:transparent;
-  color:#fffdf2;
-  font-size:55px;
+  color:#ffffff;
+  font-size:65px;
+  font-weight:bold;
+  opacity:1;
   cursor:pointer;
   text-shadow:
-    0 0 10px #ffffff,
-    0 0 22px #e4d8ff,
-    0 0 40px #b9a8ed,
-    0 0 65px #897bc2;
+    0 0 8px #ffffff,
+    0 0 18px #ffffff,
+    0 0 35px #e4d8ff,
+    0 0 55px #b9a8ed,
+    0 0 75px #897bc2;
   animation:secretStarGlow 2s ease-in-out infinite alternate;
   transition:transform .3s;
 }
-
 .moon-secret-trigger:hover {
   transform:scale(1.25);
 }
@@ -554,15 +556,16 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
 
 .moon-secret-message {
   text-align:center;
-  color:#fffdf2;
-  font-size:19px;
+  color:#ffffff;
+  font-size:21px;
+  font-weight:600;
   line-height:1.7;
   font-style:italic;
+  opacity:1;
   text-shadow:
-    0 0 8px #ffffff,
-    0 0 18px #dcd0ff,
-    0 0 30px #a99bdd;
-  animation:secretMessageGlow 2.5s ease-in-out infinite alternate;
+    0 0 5px #ffffff,
+    0 0 12px #e4d8ff,
+    0 0 24px #b9a8ed;
 }
 
 @keyframes secretMessageGlow {
