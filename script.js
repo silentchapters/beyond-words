@@ -333,6 +333,8 @@ const moonResponse = document.getElementById("moonResponse");
 const moonResponseTitle = document.getElementById("moonResponseTitle");
 const moonResponseText = document.getElementById("moonResponseText");
 const moonBack = document.getElementById("moonBack");
+const moonSecretTrigger = document.getElementById("moonSecretTrigger");
+const moonSecretMessage = document.getElementById("moonSecretMessage");
 
 function openMoonQuestion() {
   moonChoices.hidden = false;
@@ -355,6 +357,8 @@ function showMoonResponse(title, paragraphs) {
   moonResponse.hidden = false;
   moonResponseTitle.textContent = title;
   moonResponseText.replaceChildren();
+  moonSecretTrigger.hidden = true;
+moonSecretMessage.hidden = true;
 
   paragraphs.forEach((paragraph) => {
     const p = document.createElement("p");
@@ -371,8 +375,12 @@ moonYes.addEventListener("click", () => {
     "all through Your Life ill be by your side, till death do us part",
     "im serious Baby"
   ]);
+  moonSecretTrigger.hidden = false;
 });
-
+moonSecretTrigger.addEventListener("click", () => {
+  moonSecretMessage.hidden = false;
+  moonSecretTrigger.hidden = true;
+});
 moonNo.addEventListener("click", () => {
   showMoonResponse("", [
     "i understand and i wont force you to do so"
