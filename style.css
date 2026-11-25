@@ -731,3 +731,28 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
   margin: 28px auto 0;
   object-fit: contain;
 }
+/* Final Letter Return Button */
+
+.final-back-button {
+  display: block;
+  margin: 35px auto 0;
+  padding: 12px 28px;
+  border: 1px solid #c69b55;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #f8e7bd, #dfbd7d);
+  color: #654723;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  box-shadow:
+    0 0 10px rgba(230,185,105,.4),
+    0 0 24px rgba(230,185,105,.25);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.final-back-button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 15px rgba(230,185,105,.7),
+    0 0 32px rgba(230,185,105,.45);
+}
