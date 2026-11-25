@@ -555,17 +555,17 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
 }
 
 .moon-secret-message {
-  text-align:center;
-  color:#ffffff;
-  font-size:21px;
-  font-weight:600;
-  line-height:1.7;
-  font-style:italic;
-  opacity:1;
+  text-align: center;
+  color: #6d5d83;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.7;
+  font-style: italic;
+  opacity: 1;
   text-shadow:
-    0 0 5px #ffffff,
-    0 0 12px #e4d8ff,
-    0 0 24px #b9a8ed;
+    0 0 5px rgba(255,255,255,.9),
+    0 0 12px rgba(220,215,244,.8);
+  animation: secretMessageGlow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes secretMessageGlow {
