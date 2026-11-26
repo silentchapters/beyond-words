@@ -246,24 +246,62 @@ function renderParagraphs(target, text) {
 function openLetter(key) {
   const letter = letters[key];
   if (!letter) return;
+
+  activeLetterKey = key;
+
   letterTitle.textContent = letter.title;
   renderParagraphs(letterBody, letter.body);
+
   letterModal.hidden = false;
   document.body.classList.add("modal-open");
 }
 
+function revealNextStar() {
+  const currentIndex = letterOrder.indexOf(activeLetterKey);
+
+  if (currentIndex === -1) return;
+
+  explored.add(activeLetterKey);
+
+  const nextKey = letterOrder[currentIndex + 1];
+
+  if (nextKey) {
+    const nextStar = movingStars.find(
+      star => star.dataset.letter === nextKey
+    );
+
+    if (nextStar) {
+      window.setTimeout(() => {
+        nextStar.hidden = false;
+        hint.textContent = "Another little star has found its place in your universe.";
+      }, 450);
+    }
+
+    return;
+  }
+
+  revealBeyond();
+}
+
 function closeLetterPanel() {
-  letterModal.hidden = true;
-  document.body.classList.remove("modal-open");
+  if (!letterModal.hidden) {
+    letterModal.hidden = true;
+    document.body.classList.remove("modal-open");
+
+    revealNextStar();
+    activeLetterKey = null;
+  }
 }
 
 function revealBeyond() {
   if (beyondRevealed) return;
+
   beyondRevealed = true;
+
   window.setTimeout(() => {
     beyondTrigger.hidden = false;
     hint.textContent = "A little secret has appeared. It will stay here until you're ready.";
-  }, 900);
+  }, 700);
 }
 musicButton.addEventListener("click", () => {
   backgroundMusic.play().then(() => {
