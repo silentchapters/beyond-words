@@ -1002,3 +1002,29 @@ text-shadow:0 0 8px rgba(255,255,255,.9),
     padding: 10px 16px;
   }
 }
+/* =================================
+   BEYOND WORDS — THE LARGER STAR
+================================= */
+
+.beyond-trigger {
+  gap: 9px;
+  opacity: 0;
+}
+
+.beyond-trigger .star-shape {
+  width: 58px;
+  height: 58px;
+}
+
+.beyond-trigger .star-label {
+  font-size: .95rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .beyond-trigger .star-shape {
+    width: 50px;
+    height: 50px;
+  }
+}
