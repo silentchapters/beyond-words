@@ -327,15 +327,17 @@ function revealHiddenMoon() {
   hiddenMoonTrigger.hidden = false;
 }
 
-movingStars.forEach((star) => {
+// Reveal only the first star when the galaxy opens.
+
+movingStars.forEach((star, index) => {
+  star.hidden = index !== 0;
+
   star.addEventListener("click", () => {
     const key = star.dataset.letter;
 
-    explored.add(key);
-    openLetter(key);
-
-   if (explored.size >= 6) revealHiddenMoon();
-if (explored.size >= 3) revealBeyond();
+    if (!explored.has(key)) {
+      openLetter(key);
+    }
   });
 });
 
@@ -358,9 +360,28 @@ function closeEnvelopeScene() {
   envelopeScene.hidden = true;
   document.body.classList.remove("modal-open");
 }
-document.getElementById("closeEnvelope").addEventListener("click", closeEnvelopeScene);
-document.getElementById("closeUnfolded").addEventListener("click", closeEnvelopeScene);
+document.getElementById("closeEnvelope").addEventListener(
+  "click",
+  closeEnvelopeScene
+);
 
+document.getElementById("closeUnfolded").addEventListener(
+  "click",
+  () => {
+    if (sealOpened) {
+      beyondLetterRead = true;
+    }
+
+    closeEnvelopeScene();
+
+    if (beyondLetterRead) {
+      window.setTimeout(() => {
+        revealHiddenMoon();
+        hint.textContent = "And now, a little moon awaits you.";
+      }, 700);
+    }
+  }
+);
 waxSeal.addEventListener("click", () => {
   if (sealOpened) return;
   sealOpened = true;
