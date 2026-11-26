@@ -219,8 +219,20 @@ const unfoldedLetter = document.getElementById("unfoldedLetter");
 const beyondBody = document.getElementById("beyondBody");
 
 const explored = new Set();
+
 let beyondRevealed = false;
 let sealOpened = false;
+let activeLetterKey = null;
+let beyondLetterRead = false;
+
+const letterOrder = [
+  "memories",
+  "promises",
+  "gratitude",
+  "dreams",
+  "prayer",
+  "devotion"
+];
 
 function renderParagraphs(target, text) {
   target.replaceChildren();
