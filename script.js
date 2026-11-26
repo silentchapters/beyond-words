@@ -303,6 +303,7 @@ function revealBeyond() {
     hint.textContent = "A little secret has appeared. It will stay here until you're ready.";
   }, 700);
 }
+
 musicButton.addEventListener("click", () => {
   backgroundMusic.play().then(() => {
     musicButton.hidden = true;
@@ -311,6 +312,7 @@ musicButton.addEventListener("click", () => {
     console.log("Music could not start:", error);
   });
 });
+
 enterButton.addEventListener("click", () => {
   intro.classList.add("leaving");
   window.setTimeout(() => {
@@ -318,7 +320,9 @@ enterButton.addEventListener("click", () => {
     explorer.hidden = false;
   }, 850);
 });
+
 let hiddenMoonClosed = false;
+
 function revealHiddenMoon() {
   const hiddenMoonTrigger = document.getElementById("hiddenMoonTrigger");
 
@@ -342,6 +346,7 @@ movingStars.forEach((star, index) => {
 });
 
 closeLetter.addEventListener("click", closeLetterPanel);
+
 letterModal.addEventListener("click", (event) => {
   if (event.target === letterModal) closeLetterPanel();
 });
@@ -357,9 +362,25 @@ beyondTrigger.addEventListener("click", () => {
 });
 
 function closeEnvelopeScene() {
+  // Only count the confidential letter as read after it has actually unfolded.
+  const letterWasOpened = sealOpened && !unfoldedLetter.hidden;
+
   envelopeScene.hidden = true;
   document.body.classList.remove("modal-open");
+
+  if (letterWasOpened) {
+    beyondLetterRead = true;
+  }
+
+  // Reveal the Moon after the letter has been opened and the envelope is closed.
+  if (beyondLetterRead) {
+    window.setTimeout(() => {
+      revealHiddenMoon();
+      hint.textContent = "And now, a little moon awaits you.";
+    }, 700);
+  }
 }
+
 document.getElementById("closeEnvelope").addEventListener(
   "click",
   closeEnvelopeScene
@@ -367,34 +388,24 @@ document.getElementById("closeEnvelope").addEventListener(
 
 document.getElementById("closeUnfolded").addEventListener(
   "click",
-  () => {
-    if (sealOpened) {
-      beyondLetterRead = true;
-    }
-
-    closeEnvelopeScene();
-
-    if (beyondLetterRead) {
-      window.setTimeout(() => {
-        revealHiddenMoon();
-        hint.textContent = "And now, a little moon awaits you.";
-      }, 700);
-    }
-  }
+  closeEnvelopeScene
 );
+
 waxSeal.addEventListener("click", () => {
   if (sealOpened) return;
+
   sealOpened = true;
   sealInstruction.hidden = true;
   envelopeWrap.classList.add("opening");
+
   window.setTimeout(() => {
     envelopeScene.classList.add("revealed");
     unfoldedLetter.hidden = false;
     renderParagraphs(beyondBody, letters.beyond.body);
+
     requestAnimationFrame(() => unfoldedLetter.classList.add("visible"));
   }, 850);
 });
-
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
@@ -506,7 +517,6 @@ scriptureScene.addEventListener("click", (event) => {
 const faithEnding = document.getElementById("faithEnding");
 const faithEndingContent = document.getElementById("faithEndingContent");
 
-
 function openMoonQuestion() {
   moonChoices.hidden = false;
   moonResponse.hidden = true;
@@ -521,13 +531,14 @@ function closeMoonQuestion() {
   moonModal.hidden = true;
   document.body.classList.remove("modal-open");
 }
+
 function showMoonResponse(title, paragraphs) {
   moonChoices.hidden = true;
   moonResponse.hidden = false;
   moonResponseTitle.textContent = title;
   moonResponseText.replaceChildren();
   moonSecretTrigger.hidden = true;
-moonSecretMessage.hidden = true;
+  moonSecretMessage.hidden = true;
 
   paragraphs.forEach((paragraph) => {
     const p = document.createElement("p");
@@ -544,8 +555,10 @@ moonYes.addEventListener("click", () => {
     "all through Your Life ill be by your side, till death do us part",
     "im serious Baby"
   ]);
+
   moonSecretTrigger.hidden = false;
 });
+
 moonSecretTrigger.addEventListener("click", () => {
   moonSecretMessage.hidden = false;
   moonSecretTrigger.hidden = true;
@@ -557,6 +570,7 @@ moonSecretTrigger.addEventListener("click", () => {
     finalScene.hidden = false;
   }, 4000);
 });
+
 moonNo.addEventListener("click", () => {
   showMoonResponse("", [
     "i understand and i wont force you to do so"
@@ -579,6 +593,7 @@ document.addEventListener("keydown", (event) => {
     closeMoonQuestion();
   }
 });
+
 finalWaxSeal.addEventListener("click", () => {
   finalWaxSeal.disabled = true;
   finalEnvelopeWrap.classList.add("opening");
